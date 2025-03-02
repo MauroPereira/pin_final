@@ -12,6 +12,8 @@ sudo ./aws/install --update
 aws --version
 echo "AWS CLI installed successfully"
 
+################ Esta seccion no es necesaria, debido a que no se va a usar kubectl en el host ################
+
 # Instalación de kubectl
 echo "Installing kubectl"
 curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.2/2023-03-17/bin/linux/amd64/kubectl
@@ -19,6 +21,8 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 echo "kubectl installed successfully"
+
+################# 
 
 # Instalación de eksctl
 echo "Installing eksctl"
@@ -35,6 +39,8 @@ fi
 export PATH=$PATH:/usr/local/bin
 echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
 eksctl version
+
+################ Esta seccion no es necesaria, debido a que no se va a usar docker ni Helm en el host ################
 
 # Instalación de Docker
 echo "Installing Docker"
@@ -56,24 +62,30 @@ echo "Installing Helm"
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 helm version
 
-# Instalación de Terraform
-echo "Installing Terraform"
+#################
 
-# Descargar e instalar Terraform desde HashiCorp
-echo "Descargando Terraform..."
-curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o terraform_1.5.0_linux_amd64.zip
+################ Esta seccion no es necesaria, debido a que está instalado terraform en el host ################
 
-# Descomprimir el archivo descargado
-echo "Descomprimiendo Terraform..."
-unzip terraform_1.5.0_linux_amd64.zip
+# # Instalación de Terraform
+# echo "Installing Terraform"
 
-# Mover el binario de Terraform a una ubicación global
-echo "Moviendo Terraform a /usr/local/bin..."
-sudo mv terraform /usr/local/bin/
+# # Descargar e instalar Terraform desde HashiCorp
+# echo "Descargando Terraform..."
+# curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o terraform_1.5.0_linux_amd64.zip
 
-# Verificar que Terraform está instalado correctamente
-terraform --version
+# # Descomprimir el archivo descargado
+# echo "Descomprimiendo Terraform..."
+# unzip terraform_1.5.0_linux_amd64.zip
 
-echo "Instalación de Terraform completada"
+# # Mover el binario de Terraform a una ubicación global
+# echo "Moviendo Terraform a /usr/local/bin..."
+# sudo mv terraform /usr/local/bin/
+
+# # Verificar que Terraform está instalado correctamente
+# terraform --version
+
+# echo "Instalación de Terraform completada"
+
+#################
 
 echo "Instalación completada"
